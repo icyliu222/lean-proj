@@ -151,10 +151,10 @@ theorem newtonMap_second_deriv_at_simple_root
     这正是"恰好二次收敛"的非零条件。 -/
 theorem newtonMap_second_deriv_ne_zero
     (f f' f2 f3 : ℝ → ℝ) (r : ℝ)
-    (hf_all : ∀ x, HasDerivAt f (f' x) x)
-    (hf'_all : ∀ x, HasDerivAt f' (f2 x) x)
-    (hf2_all : ∀ x, HasDerivAt f2 (f3 x) x)
-    (hr : f r = 0)
+    (_hf_all : ∀ x, HasDerivAt f (f' x) x)
+    (_hf'_all : ∀ x, HasDerivAt f' (f2 x) x)
+    (_hf2_all : ∀ x, HasDerivAt f2 (f3 x) x)
+    (_hr : f r = 0)
     (hne_all : ∀ x, f' x ≠ 0)
     (hf2' : f2 r ≠ 0) -- 额外的非零假设
     : (f2 r / f' r : ℝ) ≠ 0 := by

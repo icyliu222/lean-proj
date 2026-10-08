@@ -1,9 +1,10 @@
 name = "newton"
 version = "0.1.0"
 keywords = ["math"]
+defaultTargets = ["newton"]
 
 [leanOptions]
-pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+pp.unicode.fun = true
 relaxedAutoImplicit = false
 weak.linter.mathlibStandardSet = true
 maxSynthPendingDepth = 3
@@ -12,3 +13,8 @@ maxSynthPendingDepth = 3
 name = "mathlib"
 scope = "leanprover-community"
 rev = "v4.34.0"
+
+[[lean_lib]]
+name = "newton"
+srcDir = "src"
+roots = ["NewtonComplete", "SimpleIteration", "Newton"]

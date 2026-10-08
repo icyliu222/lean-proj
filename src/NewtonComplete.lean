@@ -262,8 +262,10 @@ lemma second_order_peano_expansion
   -- 斜率：(g'(x)-g'(r))/(x-r) → g2
   have h_littleo : (fun x : ℝ ↦ deriv g x - deriv g r - (x - r) * g2) =o[𝓝 r] (fun x : ℝ ↦ x - r) :=
     hg2_r.isLittleO
-  have h_q : Tendsto (fun x : ℝ ↦ (deriv g x - deriv g r - (x - r) * g2) / (x - r)) (𝓝[≠] r) (𝓝 0) := by
-    have h_q_nhds : Tendsto (fun x : ℝ ↦ (deriv g x - deriv g r - (x - r) * g2) / (x - r)) (𝓝 r) (𝓝 0) :=
+  have h_q : Tendsto (fun x : ℝ ↦ (deriv g x - deriv g r - (x - r) * g2) / (x - r))
+      (𝓝[≠] r) (𝓝 0) := by
+    have h_q_nhds : Tendsto (fun x : ℝ ↦ (deriv g x - deriv g r - (x - r) * g2) / (x - r))
+        (𝓝 r) (𝓝 0) :=
       h_littleo.tendsto_div_nhds_zero
     exact tendsto_nhdsWithin_of_tendsto_nhds h_q_nhds
   set F := fun x : ℝ ↦ (deriv g x - deriv g r) / (x - r) - g2 with hF_def
@@ -294,7 +296,8 @@ lemma second_order_peano_expansion
       · simp [hx]
       · field_simp [hx]
     have h_val : (g2 / 2 : ℝ) = (1 / 2 : ℝ) * g2 := by ring
-    have h_const_mul : Tendsto (fun x : ℝ ↦ (1 / 2 : ℝ) * ((deriv g x - deriv g r) / (x - r))) (𝓝[≠] r) (𝓝 (g2 / 2)) := by
+    have h_const_mul : Tendsto (fun x : ℝ ↦ (1 / 2 : ℝ) * ((deriv g x - deriv g r) / (x - r)))
+        (𝓝[≠] r) (𝓝 (g2 / 2)) := by
       rw [h_val]
       exact h_slope.const_mul (1 / 2 : ℝ)
     exact h_const_mul.congr (congrFun h_align)
