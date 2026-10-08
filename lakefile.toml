@@ -1,7 +1,6 @@
 name = "newton"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["Newton"]
 
 [leanOptions]
 pp.unicode.fun = true # pretty-prints `fun a ↦ b`
@@ -13,6 +12,3 @@ maxSynthPendingDepth = 3
 name = "mathlib"
 scope = "leanprover-community"
 rev = "v4.34.0"
-
-[[lean_lib]]
-name = "Newton"
